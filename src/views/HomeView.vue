@@ -30,8 +30,8 @@ export default {
     AppMax
   },
   mounted() {
-    const apiUrl_1 = '/symptoms__list.json';
-    const apiUrl_2 = '/symptoms__and__diagnosis.json';
+    const apiUrl_1 = 'https://soslandoev.github.io/symptom/symptoms__list.json';
+    const apiUrl_2 = 'https://soslandoev.github.io/symptom/symptoms__and__diagnosis.json';
     axios.get(apiUrl_1)
       .then(response => {
         const {data} = response

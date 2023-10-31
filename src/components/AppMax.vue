@@ -20,7 +20,7 @@
     export default {
       name: "AppMax",
       mounted() {
-      const apiUrl_1 = '/symptoms__list.json';
+      const apiUrl_1 = 'https://soslandoev.github.io/symptom/symptoms__list.json';
       axios.get(apiUrl_1)
         .then(response => {
           const {data} = response
