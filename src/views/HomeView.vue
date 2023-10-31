@@ -22,6 +22,7 @@
 </template>
 
 <script>
+// test
 import axios from "axios"
 import AppMax from '../components/AppMax.vue'
 export default {
