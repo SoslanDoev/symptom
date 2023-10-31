@@ -33,7 +33,11 @@ export default {
   mounted() {
     const apiUrl_1 = 'https://soslandoev.github.io/symptom/symptoms__list.json';
     const apiUrl_2 = 'https://soslandoev.github.io/symptom/symptoms__and__diagnosis.json';
-    axios.get(apiUrl_1)
+    axios.get(apiUrl_1, {
+      headers: {
+        'Cache-Control': 'no-cache'
+      }
+    })
       .then(response => {
         const {data} = response
         this.symptomsList = data
@@ -41,7 +45,11 @@ export default {
       .catch(error => {
         console.log(error);
       });
-    axios.get(apiUrl_2)
+    axios.get(apiUrl_2, {
+      headers: {
+        'Cache-Control': 'no-cache'
+      }
+    })
       .then(response => {
         const {data} = response
         this.symptomsAndDiagnosis = data

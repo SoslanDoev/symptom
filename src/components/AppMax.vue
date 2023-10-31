@@ -21,7 +21,11 @@
       name: "AppMax",
       mounted() {
       const apiUrl_1 = 'https://soslandoev.github.io/symptom/symptoms__list.json';
-      axios.get(apiUrl_1)
+      axios.get(apiUrl_1, {
+        headers: {
+          'Cache-Control': 'no-cache'
+        }
+      })
         .then(response => {
           const {data} = response
           this.sympList = data
