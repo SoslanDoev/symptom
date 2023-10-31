@@ -22,8 +22,8 @@
       mounted() {
       const apiUrl_1 = 'https://soslandoev.github.io/symptom/symptoms__list.json';
       axios.get(apiUrl_1, {
-        headers: {
-          'Cache-Control': 'no-cache'
+        params: {
+          timestamp: Date.now()
         }
       })
         .then(response => {
