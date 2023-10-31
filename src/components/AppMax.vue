@@ -16,26 +16,13 @@
   </template>
   
   <script>
-    import axios from "axios"
     export default {
       name: "AppMax",
       mounted() {
-      const apiUrl_1 = 'https://soslandoev.github.io/symptom/symptoms__list.json';
-      axios.get(apiUrl_1, {
-        params: {
-          timestamp: Date.now()
-        }
-      })
-        .then(response => {
-          const {data} = response
-          this.sympList = data
-        })
-        .catch(error => {
-          console.log(error);
-        });
+        this.sympList = this.$store.state.sympList
       },
       data: () => ({
-        sympList: null
+        sympList: [],
       }),
       props: {
         sym: {

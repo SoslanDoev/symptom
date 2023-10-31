@@ -23,7 +23,6 @@
 
 <script>
 // test
-import axios from "axios"
 import AppMax from '../components/AppMax.vue'
 export default {
   name: 'App',
@@ -31,42 +30,13 @@ export default {
     AppMax
   },
   mounted() {
-    const apiUrl_1 = 'https://soslandoev.github.io/symptom/symptoms__list.json';
-    const apiUrl_2 = 'https://soslandoev.github.io/symptom/symptoms__and__diagnosis.json';
-    axios.get(apiUrl_1, {
-      params: {
-          timestamp: Date.now()
-        }
-    })
-      .then(response => {
-        const {data} = response
-        this.symptomsList = data
-      })
-      .catch(error => {
-        console.log(error);
-      });
-    axios.get(apiUrl_2, {
-      params: {
-          timestamp: Date.now()
-        }
-    })
-      .then(response => {
-        const {data} = response
-        this.symptomsAndDiagnosis = data
-      })
-      .catch(error => {
-        console.log(error);
-      });
-
-    // const filePath = 'symptoms__list.txt';
-    // const fileContent = fs.readFileSync(filePath, 'utf8');
-    // this.symptomsList = JSON.parse(fileContent);
-    // console.log(this.symptomsList)
+    this.symptomsList = this.$store.state.sympList
+    this.symptomsAndDiagnosis = this.$store.state.symptomsAndDiagnosis
   },
   data: () => ({
     objElement: null,
-    symptomsList: null,
-    symptomsAndDiagnosis: null,
+    symptomsList: [],
+    symptomsAndDiagnosis: [],
     userSymptoms: [], // Симптом который вводит пользователь
     diagnosis: [] // Вывод диагноза на экран
   }),
@@ -83,7 +53,7 @@ export default {
       } else {
         this.userSymptoms.push(item)
       }
-      console.log(this.userSymptoms)
+      console.log(this.userSymptoms, "dadssadasd")
       this.findDiagnosis()
     },
     closed() {
